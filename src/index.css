@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* FIFA Prediction Tracker Design Tokens */
+    --bg-primary: #080D17;
+    --bg-card: #0D1526;
+    --bg-card-hover: #111C33;
+    --bg-elevated: #152040;
+    --border-subtle: #1A2A4A;
+    --border-gold: #C8963E;
+    --border-gold-dim: rgba(200, 150, 62, 0.25);
+    --text-primary: #F0EDE6;
+    --text-secondary: #8A9BB5;
+    --text-muted: #4A5A73;
+    --gold: #C8963E;
+    --gold-light: #E8C875;
+    --gold-glow: rgba(200, 150, 62, 0.15);
+    --correct: #2ECC71;
+    --correct-bg: rgba(46, 204, 113, 0.08);
+    --incorrect: #E74C3C;
+    --incorrect-bg: rgba(231, 76, 60, 0.06);
+    --pending: #C8963E;
+    --pending-bg: rgba(200, 150, 62, 0.04);
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+    --space-2xl: 64px;
+    --card-radius: 12px;
+    --card-radius-sm: 8px;
+    --badge-radius: 20px;
+    --max-width: 1100px;
+
+    /* Shadows */
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
+    --shadow-card-hover: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-gold: 0 0 20px rgba(200, 150, 62, 0.12);
+    --shadow-correct: 0 0 12px rgba(46, 204, 113, 0.2);
+    --shadow-incorrect: 0 0 8px rgba(231, 76, 60, 0.15);
+
+    /* shadcn overrides */
+    --background: 220 45% 5%;
+    --foreground: 40 20% 93%;
+    --card: 220 40% 7%;
+    --card-foreground: 40 20% 93%;
+    --popover: 220 40% 7%;
+    --popover-foreground: 40 20% 93%;
+    --primary: 38 55% 51%;
+    --primary-foreground: 220 45% 5%;
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 40 20% 93%;
+    --muted: 220 30% 15%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 220 30% 15%;
+    --accent-foreground: 40 20% 93%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 38 55% 51%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-gold-glow {
+    background-color: var(--gold-glow);
+  }
+
+  .border-gold {
+    border-color: var(--border-gold);
+  }
+
+  .border-gold-dim {
+    border-color: var(--border-gold-dim);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 40px rgba(200, 150, 62, 0.08);
+  }
+
+  .card-hover {
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  }
+
+  .card-hover:hover {
+    border-color: var(--border-gold-dim);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+}
+
+@layer utilities {
+  @keyframes pulse-gold {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes count-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes score-bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes flash-correct {
+    0% {
+      background-color: transparent;
+    }
+    30% {
+      background-color: rgba(46, 204, 113, 0.15);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  .animate-pulse-gold {
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+  }
+
+  .animate-score-bounce {
+    animation: score-bounce 0.4s ease;
+  }
+
+  .animate-flash-correct {
+    animation: flash-correct 0.6s ease;
+  }
+}
