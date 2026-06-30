@@ -14,7 +14,7 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 h-16 flex items-center justify-between px-6 transition-all duration-300"
+      className="sticky top-0 z-50 h-16 flex items-center px-4 sm:px-6 transition-all duration-300 w-full"
       style={{
         backgroundColor: scrolled ? "rgba(8, 13, 23, 0.85)" : "var(--bg-primary)",
         backdropFilter: scrolled ? "blur(12px)" : "none",
@@ -23,11 +23,11 @@ export function Header() {
         boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.2)" : "none",
       }}
     >
-      {/* Left: Logo */}
-      <div className="flex items-center gap-2">
-        <Trophy className="w-5 h-5" color="var(--gold)" />
+      {/* Left: Logo (Takes up 1/3 of the space) */}
+      <div className="flex flex-1 items-center gap-2 min-w-0">
+        <Trophy className="w-5 h-5 flex-shrink-0" color="var(--gold)" />
         <span
-          className="font-inter font-medium uppercase"
+          className="hidden sm:block font-inter font-medium uppercase truncate"
           style={{
             fontSize: "10px",
             letterSpacing: "0.08em",
@@ -38,19 +38,20 @@ export function Header() {
         </span>
       </div>
 
-      {/* Center: Title */}
+      {/* Center: Title (Takes up 1/3 of the space, text centered) */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 font-inter font-semibold"
+        className="flex flex-1 justify-center font-inter font-semibold truncate"
         style={{
           fontSize: "18px",
           color: "var(--text-primary)",
         }}
       >
-        Prediction Tracker
+        <span className="hidden sm:inline">Prediction Tracker</span>
+        <span className="sm:hidden text-[16px]">Tracker</span>
       </div>
 
-      {/* Right: Player Avatars */}
-      <div className="flex items-center gap-2">
+      {/* Right: Player Avatars (Takes up 1/3 of the space, right aligned) */}
+      <div className="flex flex-1 items-center justify-end gap-1 sm:gap-2">
         {PLAYERS.map((player) => (
           <PlayerAvatar key={player} player={player} />
         ))}
@@ -63,7 +64,7 @@ function PlayerAvatar({ player }: { player: Player }) {
   const colors = PLAYER_COLORS[player];
   return (
     <div
-      className="w-9 h-9 rounded-full flex items-center justify-center font-inter font-bold"
+      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-inter font-bold flex-shrink-0"
       style={{
         fontSize: "13px",
         backgroundColor: colors.bg,

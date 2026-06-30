@@ -36,12 +36,12 @@ function App() {
 
       {/* Main Content */}
       <main
-        className="mx-auto px-6 pb-16"
+        className="mx-auto px-4 sm:px-6 pb-16"
         style={{ maxWidth: "var(--max-width)" }}
       >
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Left: Match Cards */}
-          <div className="flex-1 min-w-0">
+          {/* Left: Match Cards (Moved to bottom on mobile, left on desktop) */}
+          <div className="flex-1 min-w-0 order-2 lg:order-1">
             {ROUNDS.map((round) => {
               const pointsPerMatch = POINTS_SYSTEM[round.name] || 1;
               const isFinal = round.name === "Final";
@@ -104,8 +104,8 @@ function App() {
             </div>
           </div>
 
-          {/* Right: Sidebar (Leaderboard + Points Reference) */}
-          <div className="lg:w-[340px] flex-shrink-0">
+          {/* Right: Sidebar (Moved to top on mobile, right on desktop) */}
+          <div className="lg:w-[340px] flex-shrink-0 order-1 lg:order-2">
             <div className="lg:sticky lg:top-20">
               <Leaderboard scores={scores} />
               <PointsReference />
