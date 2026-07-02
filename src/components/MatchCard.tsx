@@ -11,6 +11,7 @@ interface MatchCardProps {
   totalMatches: number;
   pointsPerMatch: number;
   scores: MatchScore[];
+  winner: string | null;
   staggerDelay: number;
   collapsed: boolean;
   onToggleCollapse: () => void;
@@ -23,15 +24,15 @@ export function MatchCard({
   totalMatches,
   pointsPerMatch,
   scores,
+  winner,
   staggerDelay,
   collapsed,
   onToggleCollapse,
 }: MatchCardProps) {
-  const winner = scores.find((s) => s.status === "correct")?.predicted || null;
-  const hasResult = scores.some((s) => s.status !== "pending");
+  const hasResult = winner !== null;
 
   if (collapsed) {
-    return <CollapsedMatchRow match={match} scores={scores} onExpand={onToggleCollapse} />;
+    return <CollapsedMatchRow match={match} scores={scores} winner={winner} onExpand={onToggleCollapse} />;
   }
 
   return (
