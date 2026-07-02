@@ -79,7 +79,8 @@ export function RoundSection({
       {!roundCollapsed &&
         round.matches.map((match, idx) => {
           const matchScores = getMatchScores(match.id, match.predictions, pointsPerMatch);
-          const hasResult = !!getWinner(match.id);
+          const winner = getWinner(match.id);
+          const hasResult = !!winner;
           const defaultCollapsed = hasResult && isOlderThanYesterday(match.date);
           const collapsed = matchOverrides[match.id] ?? defaultCollapsed;
           const delay = (staggerStart + idx) * 80;
@@ -93,6 +94,7 @@ export function RoundSection({
               totalMatches={round.matches.length}
               pointsPerMatch={pointsPerMatch}
               scores={matchScores}
+              winner={winner}
               staggerDelay={delay}
               collapsed={collapsed}
               onToggleCollapse={() =>
