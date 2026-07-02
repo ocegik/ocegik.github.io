@@ -2,6 +2,7 @@ import { PLAYER_COLORS } from "@/data/predictions";
 import type { Player, Match } from "@/data/predictions";
 import type { MatchScore } from "@/hooks/useScoring";
 import { CheckCircle, XCircle, Clock } from "@/components/icons";
+import { CollapsedMatchRow } from "@/components/CollapsedMatchRow";
 
 interface MatchCardProps {
   match: Match;
@@ -11,6 +12,8 @@ interface MatchCardProps {
   pointsPerMatch: number;
   scores: MatchScore[];
   staggerDelay: number;
+  collapsed: boolean;
+  onToggleCollapse: () => void;
 }
 
 export function MatchCard({
@@ -21,9 +24,15 @@ export function MatchCard({
   pointsPerMatch,
   scores,
   staggerDelay,
+  collapsed,
+  onToggleCollapse,
 }: MatchCardProps) {
   const winner = scores.find((s) => s.status === "correct")?.predicted || null;
   const hasResult = scores.some((s) => s.status !== "pending");
+
+  if (collapsed) {
+    return <CollapsedMatchRow match={match} scores={scores} onExpand={onToggleCollapse} />;
+  }
 
   return (
     <div
@@ -76,7 +85,27 @@ export function MatchCard({
           {match.date} &middot; {match.time} IST
         </span>
 
-        <StatusBadge hasResult={hasResult} />
+        <div className="flex items-center gap-2">
+          <StatusBadge hasResult={hasResult} />
+          {hasResult && (
+            <button
+              onClick={onToggleCollapse}
+              aria-label="Collapse match"
+              className="flex items-center justify-center rounded-full"
+              style={{
+                width: "22px",
+                height: "22px",
+                backgroundColor: "var(--bg-elevated)",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M18 15l-6-6-6 6" stroke="var(--text-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Match Fixture */}
@@ -259,7 +288,6 @@ function PredictionRow({
       className="flex items-center py-2 px-2 rounded-lg"
       style={{ backgroundColor: rowBg }}
     >
-      {/* Player dot + name */}
       <div className="flex items-center gap-2" style={{ width: "72px" }}>
         <span
           className="w-2 h-2 rounded-full flex-shrink-0"
@@ -277,7 +305,6 @@ function PredictionRow({
         </span>
       </div>
 
-      {/* Predicted team */}
       <span
         className="font-inter font-semibold flex-1 mx-3"
         style={{
@@ -293,7 +320,6 @@ function PredictionRow({
         {score.predicted}
       </span>
 
-      {/* Points badge */}
       <span
         className="font-inter font-bold uppercase px-2 py-0.5 rounded-full mr-2"
         style={{
@@ -307,7 +333,6 @@ function PredictionRow({
         {badgeText}
       </span>
 
-      {/* Status icon */}
       <StatusIcon className="w-4 h-4 flex-shrink-0" color={statusColor} />
     </div>
   );
