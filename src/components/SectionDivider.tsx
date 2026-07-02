@@ -3,11 +3,11 @@ import { useInView } from "@/hooks/useInView";
 interface SectionDividerProps {
   title: string;
   isGold?: boolean;
+  action?: React.ReactNode;
 }
 
-export function SectionDivider({ title, isGold = false }: SectionDividerProps) {
+export function SectionDivider({ title, isGold = false, action }: SectionDividerProps) {
   const [ref, inView] = useInView<HTMLDivElement>();
-
   return (
     <div
       ref={ref}
@@ -26,7 +26,7 @@ export function SectionDivider({ title, isGold = false }: SectionDividerProps) {
         }}
       />
       <span
-        className="relative font-inter font-medium uppercase px-4"
+        className="relative font-inter font-medium uppercase px-4 flex items-center gap-2"
         style={{
           fontSize: "10px",
           letterSpacing: "0.08em",
@@ -35,6 +35,7 @@ export function SectionDivider({ title, isGold = false }: SectionDividerProps) {
         }}
       >
         {title}
+        {action}
       </span>
     </div>
   );
