@@ -65,6 +65,9 @@ export const POINTS_SYSTEM: Record<string, number> = {
   Final: 20,
 };
 
+// All times below are IST (India Standard Time), converted from official ET kickoff times.
+// Fixed to match the confirmed FIFA World Cup 2026 knockout schedule.
+
 export const ROUNDS: Round[] = [
   {
     name: "Round of 32",
@@ -173,8 +176,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "r32-11",
-        date: "2 Jul",
-        time: "09:30 PM",
+        date: "3 Jul",
+        time: "12:30 AM",
         teamA: "Spain",
         teamB: "Austria",
         teamAShort: "ESP",
@@ -184,7 +187,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r32-12",
         date: "3 Jul",
-        time: "01:30 AM",
+        time: "04:30 AM",
         teamA: "Portugal",
         teamB: "Croatia",
         teamAShort: "POR",
@@ -194,7 +197,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r32-13",
         date: "3 Jul",
-        time: "05:30 AM",
+        time: "08:30 AM",
         teamA: "Switzerland",
         teamB: "Algeria",
         teamAShort: "SUI",
@@ -204,7 +207,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r32-14",
         date: "3 Jul",
-        time: "09:30 PM",
+        time: "11:30 PM",
         teamA: "Australia",
         teamB: "Egypt",
         teamAShort: "AUS",
@@ -214,7 +217,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r32-15",
         date: "4 Jul",
-        time: "01:30 AM",
+        time: "03:30 AM",
         teamA: "Argentina",
         teamB: "Cape Verde",
         teamAShort: "ARG",
@@ -224,7 +227,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r32-16",
         date: "4 Jul",
-        time: "05:30 AM",
+        time: "07:00 AM",
         teamA: "Colombia",
         teamB: "Ghana",
         teamAShort: "COL",
@@ -241,7 +244,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r16-1",
         date: "5 Jul",
-        time: "12:30 AM",
+        time: "02:30 AM",
         teamA: "Winner R32-M3",
         teamB: "Winner R32-M6",
         teamAShort: "?",
@@ -250,8 +253,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "r16-2",
-        date: "5 Jul",
-        time: "04:30 AM",
+        date: "4 Jul",
+        time: "10:30 PM",
         teamA: "Winner R32-M1",
         teamB: "Winner R32-M4",
         teamAShort: "?",
@@ -260,8 +263,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "r16-3",
-        date: "5 Jul",
-        time: "08:30 AM",
+        date: "7 Jul",
+        time: "12:30 AM",
         teamA: "Winner R32-M12",
         teamB: "Winner R32-M11",
         teamAShort: "?",
@@ -270,8 +273,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "r16-4",
-        date: "6 Jul",
-        time: "12:30 AM",
+        date: "7 Jul",
+        time: "05:30 AM",
         teamA: "Winner R32-M10",
         teamB: "Winner R32-M9",
         teamAShort: "?",
@@ -281,7 +284,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r16-5",
         date: "6 Jul",
-        time: "04:30 AM",
+        time: "01:30 AM",
         teamA: "Winner R32-M2",
         teamB: "Winner R32-M5",
         teamAShort: "?",
@@ -291,7 +294,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r16-6",
         date: "6 Jul",
-        time: "08:30 AM",
+        time: "05:30 AM",
         teamA: "Winner R32-M7",
         teamB: "Winner R32-M8",
         teamAShort: "?",
@@ -301,7 +304,7 @@ export const ROUNDS: Round[] = [
       {
         id: "r16-7",
         date: "7 Jul",
-        time: "12:30 AM",
+        time: "09:30 PM",
         teamA: "Winner R32-M15",
         teamB: "Winner R32-M14",
         teamAShort: "?",
@@ -310,8 +313,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "r16-8",
-        date: "7 Jul",
-        time: "04:30 AM",
+        date: "8 Jul",
+        time: "01:30 AM",
         teamA: "Winner R32-M13",
         teamB: "Winner R32-M16",
         teamAShort: "?",
@@ -337,8 +340,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "qf-2",
-        date: "10 Jul",
-        time: "05:30 AM",
+        date: "11 Jul",
+        time: "12:30 AM",
         teamA: "Winner R16-M3",
         teamB: "Winner R16-M4",
         teamAShort: "?",
@@ -347,8 +350,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "qf-3",
-        date: "11 Jul",
-        time: "01:30 AM",
+        date: "12 Jul",
+        time: "02:30 AM",
         teamA: "Winner R16-M5",
         teamB: "Winner R16-M6",
         teamAShort: "?",
@@ -357,8 +360,8 @@ export const ROUNDS: Round[] = [
       },
       {
         id: "qf-4",
-        date: "11 Jul",
-        time: "05:30 AM",
+        date: "12 Jul",
+        time: "06:30 AM",
         teamA: "Winner R16-M7",
         teamB: "Winner R16-M8",
         teamAShort: "?",
@@ -402,7 +405,7 @@ export const ROUNDS: Round[] = [
       {
         id: "3rd-1",
         date: "19 Jul",
-        time: "12:30 AM",
+        time: "02:30 AM",
         teamA: "Loser SF-M1",
         teamB: "Loser SF-M2",
         teamAShort: "?",
