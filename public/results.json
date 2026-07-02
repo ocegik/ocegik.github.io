@@ -6,7 +6,9 @@
     { "id": "r32-4", "winner": "MAR" },
     {"id": "r32-5", "winner": "NOR" },
     {"id": "r32-6", "winner": "FRA" },
-    {"id": "r32-7", "winner": "MEX" }
-    
+    {"id": "r32-7", "winner": "MEX" },
+    {"id": "r32-8", "winner": "ENG" },
+    {"id": "r32-9", "winner": "BEL" },
+    {"id": "r32-10", "winner": "USA" }
   ]
 }
