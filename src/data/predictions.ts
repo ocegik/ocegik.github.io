@@ -68,6 +68,9 @@ export const POINTS_SYSTEM: Record<string, number> = {
 // All times below are IST (India Standard Time), converted from official ET kickoff times.
 // Fixed to match the confirmed FIFA World Cup 2026 knockout schedule.
 
+// All times below are IST (India Standard Time), converted from official ET kickoff times.
+// Fixed to match the confirmed FIFA World Cup 2026 knockout schedule.
+
 export const ROUNDS: Round[] = [
   {
     name: "Round of 32",
@@ -245,20 +248,20 @@ export const ROUNDS: Round[] = [
         id: "r16-1",
         date: "5 Jul",
         time: "02:30 AM",
-        teamA: "Winner R32-M3",
-        teamB: "Winner R32-M6",
-        teamAShort: "?",
-        teamBShort: "?",
+        teamA: "Paraguay",
+        teamB: "France",
+        teamAShort: "PAR",
+        teamBShort: "FRA",
         predictions: { Mohit: "FRA", Pandu: "FRA", Tarun: "FRA" },
       },
       {
         id: "r16-2",
         date: "4 Jul",
         time: "10:30 PM",
-        teamA: "Winner R32-M1",
-        teamB: "Winner R32-M4",
-        teamAShort: "?",
-        teamBShort: "?",
+        teamA: "Canada",
+        teamB: "Morocco",
+        teamAShort: "CAN",
+        teamBShort: "MAR",
         predictions: { Mohit: "CAN", Pandu: "MAR", Tarun: "NED" },
       },
       {
@@ -275,30 +278,30 @@ export const ROUNDS: Round[] = [
         id: "r16-4",
         date: "7 Jul",
         time: "05:30 AM",
-        teamA: "Winner R32-M10",
-        teamB: "Winner R32-M9",
-        teamAShort: "?",
-        teamBShort: "?",
+        teamA: "USA",
+        teamB: "Belgium",
+        teamAShort: "USA",
+        teamBShort: "BEL",
         predictions: { Mohit: "USA", Pandu: "BEL", Tarun: "USA" },
       },
       {
         id: "r16-5",
         date: "6 Jul",
         time: "01:30 AM",
-        teamA: "Winner R32-M2",
-        teamB: "Winner R32-M5",
-        teamAShort: "?",
-        teamBShort: "?",
+        teamA: "Brazil",
+        teamB: "Norway",
+        teamAShort: "BRA",
+        teamBShort: "NOR",
         predictions: { Mohit: "BRA", Pandu: "BRA", Tarun: "NOR" },
       },
       {
         id: "r16-6",
         date: "6 Jul",
         time: "05:30 AM",
-        teamA: "Winner R32-M7",
-        teamB: "Winner R32-M8",
-        teamAShort: "?",
-        teamBShort: "?",
+        teamA: "Mexico",
+        teamB: "England",
+        teamAShort: "MEX",
+        teamBShort: "ENG",
         predictions: { Mohit: "ENG", Pandu: "ENG", Tarun: "ENG" },
       },
       {
