@@ -5,12 +5,11 @@ import type { MatchScore } from "@/hooks/useScoring";
 interface CollapsedMatchRowProps {
   match: Match;
   scores: MatchScore[];
+  winner: string | null;
   onExpand: () => void;
 }
 
-export function CollapsedMatchRow({ match, scores, onExpand }: CollapsedMatchRowProps) {
-  const winner = scores.find((s) => s.status === "correct")?.predicted || null;
-
+export function CollapsedMatchRow({ match, scores, winner, onExpand }: CollapsedMatchRowProps) {
   return (
     <button
       onClick={onExpand}
